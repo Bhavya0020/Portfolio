@@ -273,13 +273,15 @@ header {
     .intro__img {
         grid-area: img;
         min-width: 250px;
-        position: relative;
+        /* width: 100%; */
+        height: auto;
+        position: relative important;
         z-index: 2;
     }    
     
     .section__subtitle--intro {
         align-self: start;
-        grid-column: -1 / 1;
+        grid-column: -1 / 2;
         grid-row: 2;
         text-align: right;
         position: relative;
@@ -319,24 +321,35 @@ header {
 
 .services {
     margin-bottom: 4em;
-
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .service {
     max-width: 500px;
     margin: 0 auto;
+    flex: 33%;
 }
 
-@media (min-width: 800px) {
+@media (max-width: 800px) {
     .services {
-        display: flex;
-        max-width: 1000px;
+        flex-direction: column;
+        flex: 100%;
+        max-width: 800px;
         margin-left: auto;
         margin-right: auto;
+        /* align-items: stretch; */
     }
     
-    .service + .service {
-        margin-left: 4em;
+    .service::after{
+        content: '';
+        display: block;
+        width: 2em;
+        height: 1px;
+        margin: 0.5em auto 1em;
+        background: var(--clr-light);
+        opacity: 0.25;
     }
 }
 
